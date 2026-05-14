@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Corporação Federal dos Moggers - CFM</title>
+
+  <!-- Fonte -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --azul:#1351B4;
+      --verde:#168821;
+      --verde-hover:#0f6b19;
+      --branco:#ffffff;
+      --cinza:#f4f6f8;
+      --texto:#1f2937;
+      --cinza-texto:#6b7280;
+      --borda:#dbe1e8;
+    }
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      font-family:'Inter', sans-serif;
+      background:#fff;
+      color:var(--texto);
+      line-height:1.6;
+    }
+
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
+
+    .container{
+      width:90%;
+      max-width:1200px;
+      margin:auto;
+    }
+
+    /* GOV BAR */
+
+    .govbar{
+      background:var(--azul);
+      color:#fff;
+      padding:10px 0;
+      font-size:14px;
+    }
+
+    .govbar-content{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+
+    /* HEADER */
+
+    header{
+      background:#fff;
+      border-bottom:1px solid var(--borda);
+      position:sticky;
+      top:0;
+      z-index:999;
+    }
+
+    .navbar{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:20px 0;
+      gap:20px;
+    }
+
+    .logo{
+      display:flex;
+      align-items:center;
+      gap:15px;
+    }
+
+    .logo img{
+      width:60px;
+    }
+
+    .logo-text h1{
+      font-size:22px;
+      color:var(--azul);
+      line-height:1.1;
+    }
+
+    nav{
+      display:flex;
+      gap:25px;
+      font-weight:500;
+    }
+
+    nav a:hover{
+      color:var(--verde);
+    }
+
+    .login-btn{
+      background:var(--verde);
+      color:#fff;
+      padding:10px 18px;
+      border-radius:8px;
+      transition:.3s;
+      font-weight:600;
+    }
+
+    .login-btn:hover{
+      background:var(--verde-hover);
+    }
+
+    /* HERO */
+
+    .hero{
+      background:linear-gradient(135deg,#1351B4,#168821);
+      color:#fff;
+      padding:100px 0;
+    }
+
+    .hero-content{
+      max-width:700px;
+    }
+
+    .hero h2{
+      font-size:48px;
+      line-height:1.1;
+      margin-bottom:25px;
+    }
+
+    .hero p{
+      font-size:18px;
+      margin-bottom:35px;
+    }
+
+    .hero-buttons{
+      display:flex;
+      gap:15px;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      padding:14px 24px;
+      border-radius:10px;
+      font-weight:600;
+      transition:.3s;
+    }
+
+    .btn-primary{
+      background:#fff;
+      color:var(--azul);
+    }
+
+    .btn-primary:hover{
+      background:#e5e7eb;
+    }
+
+    .btn-secondary{
+      border:2px solid #fff;
+      color:#fff;
+    }
+
+    .btn-secondary:hover{
+      background:#fff;
+      color:var(--azul);
+    }
+
+    /* SECTION */
+
+    section{
+      padding:80px 0;
+    }
+
+    .section-title{
+      font-size:36px;
+      margin-bottom:20px;
+      color:var(--azul);
+    }
+
+    .section-subtitle{
+      color:var(--cinza-texto);
+      margin-bottom:40px;
+      max-width:700px;
+    }
+
+    /* SERVICES */
+
+    .services-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:20px;
+    }
+
+    .service-card{
+      background:#fff;
+      border:1px solid var(--borda);
+      border-radius:16px;
+      padding:30px;
+      transition:.3s;
+    }
+
+    .service-card:hover{
+      transform:translateY(-5px);
+      box-shadow:0 10px 25px rgba(0,0,0,.08);
+    }
+
+    .service-card h3{
+      margin-top:15px;
+      color:var(--azul);
+    }
+
+    /* AUDIENCE */
+
+    .audience{
+      background:var(--cinza);
+    }
+
+    .audience-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:25px;
+    }
+
+    .audience-card{
+      background:#fff;
+      padding:30px;
+      border-radius:16px;
+      border-left:6px solid var(--verde);
+    }
+
+    /* NEWS */
+
+    .news-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+      gap:25px;
+    }
+
+    .news-card{
+      border:1px solid var(--borda);
+      border-radius:16px;
+      overflow:hidden;
+      transition:.3s;
+      background:#fff;
+    }
+
+    .news-card:hover{
+      transform:translateY(-5px);
+    }
+
+    .news-image{
+      height:180px;
+      background-image:url('https://i.ibb.co/Q3hrWTbc/Gemini-Generated-Image-57n2hy57n2hy57n2.png');
+      background-size:cover;
+      background-position:center;
+    }
+      
+
+
+    .news-content{
+      padding:25px;
+    }
+
+    .news-date{
+      color:var(--verde);
+      font-size:14px;
+      font-weight:600;
+    }
+
+    .news-card h3{
+      margin:10px 0;
+      color:var(--azul);
+    }
+
+    /* TRANSPARENCY */
+
+    .transparency{
+      background:#eaf2ff;
+    }
+
+    .transparency-list{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:20px;
+      margin-top:30px;
+    }
+
+    .transparency-item{
+      background:#fff;
+      padding:25px;
+      border-radius:14px;
+      font-weight:600;
+    }
+
+    /* QUICK ACCESS */
+
+    .quick-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+      gap:20px;
+    }
+
+    .quick-btn{
+      background:var(--azul);
+      color:#fff;
+      padding:20px;
+      border-radius:12px;
+      text-align:center;
+      font-weight:600;
+      transition:.3s;
+    }
+
+    .quick-btn:hover{
+      background:#0f3d88;
+    }
+
+    /* FOOTER */
+
+    footer{
+      background:#0f172a;
+      color:#fff;
+      padding:60px 0;
+      margin-top:50px;
+    }
+
+    .footer-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:30px;
+    }
+
+    footer h3{
+      margin-bottom:15px;
+      color:#93c5fd;
+    }
+
+    footer p,
+    footer a{
+      color:#cbd5e1;
+      margin-bottom:10px;
+      display:block;
+    }
+
+    .footer-bottom{
+      margin-top:40px;
+      border-top:1px solid rgba(255,255,255,.1);
+      padding-top:20px;
+      text-align:center;
+      color:#94a3b8;
+      font-size:14px;
+    }
+
+    /* RESPONSIVO */
+
+    @media(max-width:900px){
+
+      .navbar{
+        flex-direction:column;
+      }
+
+      nav{
+        flex-wrap:wrap;
+        justify-content:center;
+      }
+
+      .hero h2{
+        font-size:36px;
+      }
+
+      .hero{
+        text-align:center;
+      }
+
+      .hero-buttons{
+        justify-content:center;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- GOV BAR -->
+  <div class="govbar">
+    <div class="container govbar-content">
+      <span>Portal Oficial da Corporação Federativados Moggers</span>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header>
+    <div class="container navbar">
+
+      <div class="logo">
+        <img src="https://i.ibb.co/Q3hrWTbc/Gemini-Generated-Image-57n2hy57n2hy57n2.png" alt="Corporação Federal dos Moggers" border="0">
+        <div class="logo-text">
+          <h1>Corporação Federativa<br>dos Moggers</h1>
+        </div>
+    </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+
+      <div class="hero-content">
+        <h2>Portal Oficial da Corporação Federativa dos Moggers</h2>
+
+        <p>
+          Serviços Moggadores, Sigma Male e Red Pills, sendo eficaz para você que deseja moggar aquele betinha que só te enche o saco.
+        </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SERVIÇOS -->
+  <section>
+    <div class="container">
+
+      <h2 class="section-title">Serviços Para Ser Um Moggador</h2>
+      <p class="section-subtitle">
+        Veja os principais serviços para Moggar da CFM.
+      </p>
+
+      <div class="services-grid">
+
+        <div class="service-card">
+          <h3>Consulta Frequente De Macho Alpha</h3>
+          <p>Conecte-se com vários machos alpha de sua região.</p>
+        </div>
+
+        <div class="service-card">
+          <h3>Solicitar Um BETA Tester</h3>
+          <p>Emita solicitações para chamar um BETA, para assim, treinar seus Mogg's.</p>
+        </div>
+
+        <div class="service-card">
+          <h3>Denúncia Contra BETA Tester's que NÃO se comprometam a ser Moggados</h3>
+          <p>Envie denúncias contra BETA'S que não querem ser Moggados.</p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PÚBLICO -->
+  <section class="audience">
+    <div class="container">
+
+      <h2 class="section-title">Como Podemos Ajudar A Moggar?</h2>
+
+      <div class="audience-grid">
+
+        <div class="audience-card">
+          <h3>BETA'S Que Querem Ser SIGMAS</h3>
+          <p>
+            Se você é um BETA e quer se tornar um SIGMA, aqui é o lugar certo para você. A CFM oferece recursos e orientações para ajudar na sua Moggagem.
+          </p>
+        </div>
+
+        <div class="audience-card">
+          <h3>Para Os SIGMAS</h3>
+          <p>
+            Se você já é um SIGMA, a CFM tem ferramentas para aprimorar suas habilidades de Moggagem e se conectar com outros SIGMAS RED PILLS.
+          </p>
+        </div>
+
+    </div>
+  </section>
+
+  <!-- NOTÍCIAS -->
+  <section>
+    <div class="container">
+
+      <h2 class="section-title">Últimas Notícias Sobre BETA'S:</h2>
+
+      <div class="news-grid">
+
+        <div class="news-card">
+          <div class="news-image"></div>
+
+          <div class="news-content">
+            <span class="news-date">12 MAIO 2026</span>
+            <h3>BETA'S Que Não se Comprometem a Ser Moggados</h3>
+            <p>
+                Aumento de denúncias contra BETA'S que não querem ser Moggados teve um aumento significante neste dia.
+            </p>
+          </div>
+        </div>
+
+        <div class="news-card">
+          <div class="news-image"></div>
+
+          <div class="news-content">
+            <span class="news-date">08 MAIO 2026</span>
+            <h3>CFM pretende ampliar serviços online para SIGMAS</h3>
+            <p>
+                Novos recursos digitais pretendem ser disponibilizados apenas para os SIGMAS.
+            </p>
+          </div>
+        </div>
+
+        <div class="news-card">
+          <div class="news-image"></div>
+
+          <div class="news-content">
+            <span class="news-date">02 MAIO 2026</span>
+            <h3>BETA QUE PASSOU A SER SIGMA APROVA A CFM, DIZENDO QUE ESTÁ MOGGANDO TODOS OS BETAS!!</h3>
+            <p>
+                Um BETA que passou a ser SIGMA aprovou os serviços da CFM, afirmando que a Moggagem foi eficaz para ele.
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer>
+
+    <div class="container">
+
+      <div class="footer-grid">
+
+        <div>
+          <h3>Corporação Federativa dos Moggers</h3>
+          <p>Órgão vinculado ao Governo Federal.</p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        © 2026 Corporação Federativa dos Moggers — Governo Federal.
+      </div>
+
+    </div>
+
+  </footer>
+
+</body>
+</html>
